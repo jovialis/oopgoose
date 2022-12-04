@@ -1,0 +1,35 @@
+{
+  "name": "@jovialis/oopgoose",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Dylan Hanson (jovialis)",
+    "email": "me@dyl.fyi",
+    "url": "https://dyl.fyi"
+  },
+  "description": "Object oriented typing layer built on top of mongoose schemas",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jovialis/oopgoose"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "mongodb": "^4.12.1",
+    "mongoose": "^6.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.2",
+    "typescript": "^4.5.4"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "publishConfig": {
+    "@jovialis:registry": "https://npm.pkg.github.com"
+  },
+  "packageManager": "yarn@3.3.0"
+}
