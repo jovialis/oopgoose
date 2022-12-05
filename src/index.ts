@@ -299,7 +299,7 @@ export namespace OG {
 			return instances.map(i => _instantiate(docClass, i));
 		} else {
 			const res = await docClass.Model.create(docs, options);
-			return res.map(r => _instantiate(docClass, r));
+			return res.map((r: HydratedDocument<I>) => _instantiate(docClass, r));
 		}
 	}
 
