@@ -77,6 +77,8 @@ export function isDocumentClass<I extends DocumentClassSchema>(obj: any): obj is
 	return (<DocumentClass<I>>obj).__isDocumentClass__ !== undefined;
 }
 
+let modelList: { [modelName: string]: DocClassBuilder<any, any> } = {};
+
 /**
  * Generates a Document Class Builder that can be used in DB operations
  * @param modelName
@@ -93,9 +95,13 @@ export function model<I extends DocumentClassSchema, D extends DocumentClass<I>>
 	castedInstantiator._schema = schema;
 	castedInstantiator._modelName = modelName;
 	castedInstantiator.Model = _model(modelName, schema);
+	modelList[modelName] = castedInstantiator;
 	return castedInstantiator;
 }
 
+export function getDocumentBuilder(modelName: string): DocClassBuilder<any, any> | undefined {
+	return modelList[modelName];
+}
 
 interface DocumentClassInstantiator<I extends DocumentClassSchema, D extends DocumentClass<I>> {
 	new(_doc: HydratedDocument<I>): D
