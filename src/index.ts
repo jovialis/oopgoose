@@ -18,7 +18,7 @@ import {
 	QueryOptions,
 	SaveOptions,
 	Schema,
-	UpdateQuery,
+	UpdateQuery, UpdateWriteOpResult,
 } from "mongoose";
 
 export type ID = string | ObjectId
@@ -184,7 +184,7 @@ export namespace OG {
 		filter?: FilterQuery<I>,
 		update?: UpdateQuery<I>,
 		options?: QueryOptions<I>
-	): Promise<UpdateResult> {
+	): Promise<UpdateWriteOpResult> {
 		return docClass.Model.updateOne(filter, update, options);
 	}
 
@@ -193,7 +193,7 @@ export namespace OG {
 		filter?: FilterQuery<I>,
 		update?: UpdateQuery<I>,
 		options?: QueryOptions<I>
-	): Promise<UpdateResult> {
+	): Promise<UpdateWriteOpResult> {
 		return docClass.Model.updateMany(filter, update, options);
 	}
 
@@ -326,4 +326,4 @@ export namespace OG {
 			_id: id
 		});
 	}
-}
+}``
